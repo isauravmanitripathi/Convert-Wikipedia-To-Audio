@@ -7,21 +7,37 @@ def fetch_article(url):
     response = requests.get(url)
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    title = soup.find('h1', {'id': 'firstHeading'}).text
-    content_div = soup.find('div', {'id': 'mw-content-text'}).div
+    if 'wikipedia.org' in url:
+        # This is a Wikipedia page
+        title = soup.find('h1', {'id': 'firstHeading'}).text
+        content_div = soup.find('div', {'id': 'mw-content-text'}).div
 
-    # remove the references part
-    for ref in content_div.find_all("div", {"class": "reflist"}):
-        ref.decompose()
+        # remove the references part
+        for ref in content_div.find_all("div", {"class": "reflist"}):
+            ref.decompose()
 
-    content = []
-    # add headers and paragraphs, but ignore 'li' tags
-    for tag in content_div.find_all(['h2', 'h3', 'h4', 'h5', 'h6', 'p']):
-        # remove the citation parts
-        clean_text = re.sub(r'\[\d+(,\d+)*\]', '', tag.get_text())
-        content.append(clean_text)
+        content = []
+        # add headers and paragraphs, but ignore 'li' tags
+        for tag in content_div.find_all(['h2', 'h3', 'h4', 'h5', 'h6', 'p']):
+            # remove the citation parts
+            clean_text = re.sub(r'\[\d+(,\d+)*\]', '', tag.get_text())
+            content.append(clean_text)
+
+    elif 'scientificamerican.com' in url:
+        # This is a Scientific American page
+        title = soup.find('h1', {'class': 'article__headline'}).text.strip()
+        content_div = soup.find('div', {'class': 'article__body'})
+
+        content = []
+        # add headers and paragraphs
+        for tag in content_div.find_all(['h2', 'h3', 'h4', 'h5', 'h6', 'p']):
+            content.append(tag.get_text())
+
+    else:
+        raise ValueError(f"URL {url} is not recognized. This script can only fetch articles from Wikipedia or Scientific American.")
 
     return title, '\n'.join(content)
+
 
 
 
