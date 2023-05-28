@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Audio Player</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #progress-bar {
+            width: 300px;
+            height: 10px;
+            background-color: lightgray;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        #progress-bar .fill {
+            height: 100%;
+            background-color: darkgray;
+            width: 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Audio Player</h1>
+
+    <div id="file-info"></div>
+    <div id="progress-bar" onclick="seek(event)">
+        <div class="fill"></div>
+    </div>
+    <br>
+    <label for="speed">Playback Speed:</label>
+    <input type="range" id="speed" min="0.5" max="2" step="0.1" value="1">
+    <br>
+    <button onclick="playAudio()">Play</button>
+    <button onclick="pauseAudio()">Pause</button>
+    <br>
+    <button onclick="downloadFile()">Download</button>
+
+    <script>
+        var audioPlayer = new Audio();
+        var progressBarFill = document.querySelector('#progress-bar .fill');
+        var fileInfo = document.getElementById('file-info');
+        var audioFilePath = 'Text To Speech/Supreme_Court_of_India.mp3';
+
+        audioPlayer.src = audioFilePath;
+        fileInfo.textContent = getFileNameFromPath(audioFilePath);
+
+        function playAudio() {
+            audioPlayer.playbackRate = document.getElementById('speed').value;
+            audioPlayer.play();
+        }
+
+        function pauseAudio() {
+            audioPlayer.pause();
+        }
+
+        function updateProgressBar() {
+            var progress = (audioPlayer.currentTime / audioPlayer.duration) * 100;
+            progressBarFill.style.width = progress + '%';
+        }
+
+        function seek(event) {
+            var progressBarWidth = event.currentTarget.offsetWidth;
+            var clickPosition = event.clientX - event.currentTarget.getBoundingClientRect().left;
+            var seekPercentage = (clickPosition / progressBarWidth) * 100;
+            var seekTime = (seekPercentage / 100) * audioPlayer.duration;
+            audioPlayer.currentTime = seekTime;
+        }
+
+        function getFileNameFromPath(path) {
+            var lastIndex = path.lastIndexOf('/');
+            return path.substring(lastIndex + 1);
+        }
+
+        function downloadFile() {
+            var a = document.createElement('a');
+            a.href = audioPlayer.src;
+            a.download = getFileNameFromPath(audioPlayer.src);
+            a.click();
+        }
+
+        audioPlayer.addEventListener('timeupdate', updateProgressBar);
+    </script>
+</body>
+</html>

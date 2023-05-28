@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <br/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <style>
+   * {
+      box-sizing: border-box;
+    }
+
+    #myInput {
+
+      background-position: 10px 10px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #myTable {
+      border-collapse: collapse;
+      width: 100%;
+      border: 1px solid #ddd;
+      font-size: 18px;
+    }
+
+    #myTable th, #myTable td {
+      text-align: left;
+      padding: 12px;
+    }
+
+    #myTable tr {
+      border-bottom: 1px solid #ddd;
+    }
+
+    #myTable tr.header, #myTable tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+ </head>
+ <body>
+  <h2 style="align-content: center">
+   Gaurav Chad
+  </h2>
+  <input id="myInput" onkeyup="myFunction()" placeholder="Search For Project" title="Type in a name" type="text"/>
+  <table id="myTable">
+   <tr class="header">
+    <th style="width:auto;">
+     Name
+    </th>
+    <th style="width:auto;">
+     View
+    </th>
+    <th style="width:auto;">
+     Podcast
+    </th>
+    <th style="width:auto;">
+     Contact
+    </th>
+    <th style="width:auto;">
+     Completed
+    </th>
+   </tr>
+   <script>
+    function myFunction() {
+      var input, filter, table, tr, td, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      table = document.getElementById("myTable");
+      tr = table.getElementsByTagName("tr");
+      for (i = 0; i < tr.length; i++) {
+        td = tr[i].getElementsByTagName("td")[0];
+        if (td) {
+          txtValue = td.textContent || td.innerText;
+          if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            tr[i].style.display = "";
+          } else {
+            tr[i].style.display = "none";
+          }
+        }
+      }
+    }
+
+    function saveCompletionStatus(rowId, id, value) {
+        document.cookie = rowId + "_" + id + "=" + value + "; expires=Fri, 31 Dec 9999 23:59:59 GMT; path=/";
+    }
+
+    window.onload = function() {
+     var cookies = document.cookie.split("; ");
+     for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i].split("=");
+      var ids = cookie[0].split("_");
+      var rowId = ids[0];
+      var selectId = ids[1];
+      var value = cookie[1];
+      var select = document.getElementById(rowId).getElementsByClassName(selectId)[0];
+      if (select) {
+       select.value = value;
+      }
+     }
+    }
+   </script>
+   <tr id="row1">
+    <td>
+     International Alphabet of Sanskrit Transliteration
+    </td>
+    <td>
+     <a href="HTML_Files/International_Alphabet_of_Sanskrit_Transliteration.html">
+      View
+     </a>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+     <select class_="completionStatus" onchange="saveCompletionStatus('row1', 'completionStatus', this.value)">
+      <option value="">
+      </option>
+      <option value="Yes">
+       Yes
+      </option>
+      <option value="No">
+       No
+      </option>
+     </select>
+    </td>
+   </tr>
+   <tr id="row2">
+    <td>
+     Federal Court of India
+    </td>
+    <td>
+     <a href="HTML_Files/Federal_Court_of_India.html">
+      View
+     </a>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+     <select class_="completionStatus" onchange="saveCompletionStatus('row2', 'completionStatus', this.value)">
+      <option value="">
+      </option>
+      <option value="Yes">
+       Yes
+      </option>
+      <option value="No">
+       No
+      </option>
+     </select>
+    </td>
+   </tr>
+   <tr id="row3">
+    <td>
+     Delhi
+    </td>
+    <td>
+     <a href="HTML_Files/Delhi.html">
+      View
+     </a>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+     <select class_="completionStatus" onchange="saveCompletionStatus('row3', 'completionStatus', this.value)">
+      <option value="">
+      </option>
+      <option value="Yes">
+       Yes
+      </option>
+      <option value="No">
+       No
+      </option>
+     </select>
+    </td>
+   </tr>
+   <tr id="row4">
+    <td>
+     Supreme Court of India
+    </td>
+    <td>
+     <a href="HTML_Files/Supreme_Court_of_India.html">
+      View
+     </a>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+     <select class_="completionStatus" onchange="saveCompletionStatus('row4', 'completionStatus', this.value)">
+      <option value="">
+      </option>
+      <option value="Yes">
+       Yes
+      </option>
+      <option value="No">
+       No
+      </option>
+     </select>
+    </td>
+   </tr>
+   <tr id="row5">
+    <td>
+     New Delhi
+    </td>
+    <td>
+     <a href="HTML_Files/New_Delhi.html">
+      View
+     </a>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+     <select class_="completionStatus" onchange="saveCompletionStatus('row5', 'completionStatus', this.value)">
+      <option value="">
+      </option>
+      <option value="Yes">
+       Yes
+      </option>
+      <option value="No">
+       No
+      </option>
+     </select>
+    </td>
+   </tr>
+   <tr id="row6">
+    <td>
+     India
+    </td>
+    <td>
+     <a href="HTML_Files/India.html">
+      View
+     </a>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+     <select class_="completionStatus" onchange="saveCompletionStatus('row6', 'completionStatus', this.value)">
+      <option value="">
+      </option>
+      <option value="Yes">
+       Yes
+      </option>
+      <option value="No">
+       No
+      </option>
+     </select>
+    </td>
+   </tr>
+   <tr id="row7">
+    <td>
+     Geographic coordinate system
+    </td>
+    <td>
+     <a href="HTML_Files/Geographic_coordinate_system.html">
+      View
+     </a>
+    </td>
+    <td>
+    </td>
+    <td>
+    </td>
+    <td>
+     <select class_="completionStatus" onchange="saveCompletionStatus('row7', 'completionStatus', this.value)">
+      <option value="">
+      </option>
+      <option value="Yes">
+       Yes
+      </option>
+      <option value="No">
+       No
+      </option>
+     </select>
+    </td>
+   </tr>
+  </table>
+ </body>
+</html>
+
