@@ -15,14 +15,12 @@ def fetch_article(url):
         ref.decompose()
 
     content = []
-    # add headers and paragraphs
-    for tag in content_div.find_all(['h2', 'h3', 'h4', 'h5', 'h6', 'p', 'li']):
-        if tag.name == 'li':
-            content.append('  * ' + tag.get_text())
-        else:
-            content.append(tag.get_text())
+    # add headers and paragraphs, but ignore 'li' tags
+    for tag in content_div.find_all(['h2', 'h3', 'h4', 'h5', 'h6', 'p']):
+        content.append(tag.get_text())
 
     return title, '\n'.join(content)
+
 
 
 def write_to_file(directory, filename, title, content, url):
