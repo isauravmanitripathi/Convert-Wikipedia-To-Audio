@@ -1,7 +1,7 @@
 import os
 import requests
 from bs4 import BeautifulSoup
-
+import re
 
 def fetch_article(url):
     response = requests.get(url)
@@ -17,7 +17,9 @@ def fetch_article(url):
     content = []
     # add headers and paragraphs, but ignore 'li' tags
     for tag in content_div.find_all(['h2', 'h3', 'h4', 'h5', 'h6', 'p']):
-        content.append(tag.get_text())
+        # remove the citation parts
+        clean_text = re.sub(r'\[\d+(,\d+)*\]', '', tag.get_text())
+        content.append(clean_text)
 
     return title, '\n'.join(content)
 
