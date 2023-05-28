@@ -2,8 +2,9 @@ import os
 import re
 from bs4 import BeautifulSoup
 
-# Specify the directory where the HTML files are located
-html_directory_path = "/Users/sauravmanitripathi/Desktop/content upsc/HTML_Files"
+# Specify the directories where the HTML files are located
+html_directory_path = "HTML_Files"
+audio_directory_path = "/Users/sauravmanitripathi/Desktop/content upsc/Audio HTML Page"
 
 # Open the index.html file
 index_file_path = "/Users/sauravmanitripathi/Desktop/content upsc/index.html"
@@ -13,8 +14,9 @@ with open(index_file_path, "r") as f:
 # Get the table in the HTML
 table = soup.find("table", {"id": "myTable"})
 
-# Get the list of HTML file names in the directory
+# Get the list of HTML file names in the directories
 html_files = [filename for filename in os.listdir(html_directory_path) if filename.lower().endswith(".html")]
+audio_files = [filename for filename in os.listdir(audio_directory_path) if filename.lower().endswith(".html")]
 
 # Get the list of all rows in the table
 table_rows = table.findAll("tr")
@@ -53,13 +55,16 @@ for i, filename in enumerate(html_files, start=1): # start enumeration from 1
 
     # Add the file path in the 'View' column
     td = soup.new_tag("td")
-    a = soup.new_tag("a", href="HTML_Files/" + filename)
+    a = soup.new_tag("a", href=f"HTML_Files/{filename}")
     a.string = "View"
     td.append(a)
     tr.append(td)
 
-    # Add empty 'Podcast' column
+    # Add 'Podcast' column with a "Listen" link that links to corresponding HTML file if it exists in the audio directory
     td = soup.new_tag("td")
+    a = soup.new_tag("a", href=f"Audio%20HTML%20Page/{file_name_cleaned}.html")
+    a.string = "Listen"
+    td.append(a)
     tr.append(td)
 
     # Add empty 'Contact' column
@@ -92,4 +97,3 @@ with open(index_file_path, "w") as f:
     for line in soup.prettify().split('\n'):
         f.write(line.rstrip())
         f.write('\n')
-

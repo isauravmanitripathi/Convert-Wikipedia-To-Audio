@@ -1,0 +1,42 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+          <title>Free UPSC Podcast</title>
+        </head>
+        <body>
+          <h1>Presidencies_and_provinces_of_British_India</h1>
+
+          <audio id="audioPlayer" controls>
+            <source id="audioSource" src="" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+
+          <button id="playButton" onclick="playAudio()">Play</button>
+          <button id="pauseButton" onclick="pauseAudio()" disabled>Pause</button>
+
+          <script>
+            var audioPlayer = document.getElementById("audioPlayer");
+            var audioSource = document.getElementById("audioSource");
+            var playButton = document.getElementById("playButton");
+            var pauseButton = document.getElementById("pauseButton");
+
+            var audioFilePath = "01Text To Speech/Presidencies_and_provinces_of_British_India.mp3";
+
+            audioSource.src = audioFilePath;
+
+            function playAudio() {
+              audioPlayer.play();
+              playButton.disabled = true;
+              pauseButton.disabled = false;
+            }
+
+            function pauseAudio() {
+              audioPlayer.pause();
+              playButton.disabled = false;
+              pauseButton.disabled = true;
+            }
+          </script>
+        </body>
+        </html>
+        

@@ -1,5 +1,6 @@
 import os
 from gtts import gTTS
+from tqdm import tqdm
 
 # Function to convert text file to audio
 def convert_to_audio(file_path, output_folder):
@@ -15,10 +16,14 @@ def convert_to_audio(file_path, output_folder):
 
 # Folder paths
 input_folder = '/Users/sauravmanitripathi/Desktop/content upsc/Fetched Article'
-output_folder = '/Users/sauravmanitripathi/Desktop/content upsc/Text To Speech'
+output_folder = '/Users/sauravmanitripathi/Desktop/content upsc/Audio HTML Page/01Text To Speech'
+
+# Get the list of text files
+text_files = [filename for filename in os.listdir(input_folder) if filename.endswith('.txt')]
 
 # Iterate over files in the input folder
-for filename in os.listdir(input_folder):
-    if filename.endswith('.txt'):
-        file_path = os.path.join(input_folder, filename)
+for filename in text_files:
+    file_path = os.path.join(input_folder, filename)
+    with tqdm(total=1, desc=f'Converting {filename}', unit='file') as pbar:
         convert_to_audio(file_path, output_folder)
+        pbar.update(1)
