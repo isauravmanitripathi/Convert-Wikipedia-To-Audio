@@ -6,9 +6,9 @@ clear_contents = input("Do you want to clear all the contents of the file? (yes/
 
 if clear_contents.lower() == "yes":
     # File and directory paths
-    wiki_links_file_path = "/Users/sauravmanitripathi/Desktop/content upsc/wikipedia_links.txt"
-    fetched_articles_dir = "/Users/sauravmanitripathi/Desktop/content upsc/Fetched Article"
-    txt_to_html_dir = "/Users/sauravmanitripathi/Desktop/content upsc/TxtToHtml"
+    wiki_links_file_path = "wikipedia_links.txt"
+    fetched_articles_dir = "Fetched Article"
+    txt_to_html_dir = "TxtToHtml"
 
     # Clear file contents
     with open(wiki_links_file_path, "w") as f:

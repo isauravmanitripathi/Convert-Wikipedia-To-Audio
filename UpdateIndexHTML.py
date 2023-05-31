@@ -4,10 +4,10 @@ from bs4 import BeautifulSoup
 
 # Specify the directories where the HTML files are located
 html_directory_path = "HTML_Files"
-audio_directory_path = "/Users/sauravmanitripathi/Desktop/content upsc/Audio HTML Page"
+audio_directory_path = "Audio HTML Page"
 
 # Open the index.html file
-index_file_path = "/Users/sauravmanitripathi/Desktop/content upsc/index.html"
+index_file_path = "index.html"
 with open(index_file_path, "r") as f:
     soup = BeautifulSoup(f, "html.parser")
 

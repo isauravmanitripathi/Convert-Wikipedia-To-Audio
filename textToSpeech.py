@@ -15,8 +15,8 @@ def convert_to_audio(file_path, output_folder):
     print(f"Converted {file_path} to {audio_file_path}")
 
 # Folder paths
-input_folder = '/Users/sauravmanitripathi/Desktop/content upsc/Fetched Article'
-output_folder = '/Users/sauravmanitripathi/Desktop/content upsc/Audio HTML Page/01Text To Speech'
+input_folder = 'Fetched Article'
+output_folder = 'Audio HTML Page/01Text To Speech'
 
 # Get the list of text files
 text_files = [filename for filename in os.listdir(input_folder) if filename.endswith('.txt')]

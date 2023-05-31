@@ -22,14 +22,14 @@ def get_new_file_name(folder_path):
         return file_path
 
 # Read the content of wikipedia_links.txt and LinkToBeFetched.txt
-wiki_links = read_file('/Users/sauravmanitripathi/Desktop/content upsc/wikipedia_links.txt')
-to_fetch_links = read_file('/Users/sauravmanitripathi/Desktop/content upsc/LinkToBeFetched.txt')
+wiki_links = read_file('wikipedia_links.txt')
+to_fetch_links = read_file('LinkToBeFetched.txt')
 
 # Combine the links and remove duplicates
 all_links = set(wiki_links + to_fetch_links)
 
 # Specify the destination folder for saving the links
-destination_folder = '/Users/sauravmanitripathi/Desktop/content upsc/Saved Links'
+destination_folder = 'Saved Links'
 
 # Create the destination folder if it doesn't exist
 if not os.path.exists(destination_folder):

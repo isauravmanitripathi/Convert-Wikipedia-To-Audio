@@ -2,8 +2,8 @@ import os
 import shutil
 
 # Source and destination directories
-source_dir = "/Users/sauravmanitripathi/Desktop/content upsc/TxtToHtml"
-destination_dir = "/Users/sauravmanitripathi/Desktop/content upsc/HTML_Files"
+source_dir = "TxtToHtml"
+destination_dir = "HTML_Files"
 
 # Copy files from source to destination
 for filename in os.listdir(source_dir):

@@ -32,7 +32,7 @@ def extract_text_from_url(url):
 
 
 # Create the folder to store the fetched articles if it doesn't exist
-folder_path = "/Users/sauravmanitripathi/Desktop/content upsc/Fetched Article"
+folder_path = "Fetched Article"
 os.makedirs(folder_path, exist_ok=True)
 
 # Ask the user to input the URLs

@@ -1,5 +1,5 @@
 # Open the wikipedia_links.txt file
-wiki_links_file_path = "/Users/sauravmanitripathi/Desktop/content upsc/wikipedia_links.txt"
+wiki_links_file_path = "wikipedia_links.txt"
 with open(wiki_links_file_path, "r") as f:
     links = f.readlines()
 
@@ -64,7 +64,7 @@ def fetch_links():
             break
 
     # Write the selected links to LinkToBeFetched.txt
-    link_to_fetch_file_path = "/Users/sauravmanitripathi/Desktop/content upsc/LinkToBeFetched.txt"
+    link_to_fetch_file_path = "LinkToBeFetched.txt"
     with open(link_to_fetch_file_path, "w") as f:
         f.writelines(selected_links)
 

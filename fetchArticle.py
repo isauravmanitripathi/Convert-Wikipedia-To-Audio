@@ -52,8 +52,8 @@ def write_to_file(directory, filename, title, content, url):
 
 
 def main():
-    filepath = '/Users/sauravmanitripathi/Desktop/content upsc/LinkToBeFetched.txt'
-    directory = '/Users/sauravmanitripathi/Desktop/content upsc/Fetched Article'
+    filepath = 'LinkToBeFetched.txt'
+    directory = 'Fetched Article'
 
     with open(filepath, 'r') as f:
         urls = f.readlines()

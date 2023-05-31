@@ -1,7 +1,7 @@
 import os
 
-source_dir = "/Users/sauravmanitripathi/Desktop/content upsc/Audio HTML Page/01Text To Speech"
-target_dir = "/Users/sauravmanitripathi/Desktop/content upsc/Audio HTML Page"
+source_dir = "Audio HTML Page/01Text To Speech"
+target_dir = "Audio HTML Page"
 
 for filename in os.listdir(source_dir):
     if filename.endswith(".mp3"):

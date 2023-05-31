@@ -3,8 +3,8 @@ import markdown
 import re
 
 # define the path
-input_dir = '/Users/sauravmanitripathi/Desktop/content upsc/Fetched Article'
-output_dir = '/Users/sauravmanitripathi/Desktop/content upsc/TxtToHtml'
+input_dir = 'Fetched Article'
+output_dir = 'TxtToHtml'
 
 # check if output directory exists, if not, create it
 if not os.path.exists(output_dir):

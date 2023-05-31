@@ -1,7 +1,7 @@
 import os
 
 # Specify the directory where the HTML files are located
-audio_directory_path = "/Users/sauravmanitripathi/Desktop/content upsc/Audio HTML Page"
+audio_directory_path = "Audio HTML Page"
 
 # Get the list of HTML file names in the directory
 audio_files = [filename for filename in os.listdir(audio_directory_path) if filename.lower().endswith(".html")]
