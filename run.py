@@ -3,16 +3,18 @@ import subprocess
 files_to_run = [
     "FetchWikiLink.py",
     "WikiLinksToBeFetched.py",
-    "SavedWikiLinks.py",
+    #"SavedWikiLinks.py",
+    "CheckingOldLinks.py",
+    "CopyFetchedLink.py",
     "fetchArticle.py",
-    "textToSpeech.py",
-    "AudioToHTMLConvert.py",
-    "TxtHtmlConvert.py",
-    "CopyHTMLfile.py",
-    "ClearUnderscore.py",
-    "UpdateIndexHTML.py",
-    "deleteDuplicateRowsInHTML.py",
-    "DeleteSimilarLinks.py",
+    #"textToSpeech.py",
+    #"AudioToHTMLConvert.py",
+    #"TxtHtmlConvert.py",
+    #"CopyHTMLfile.py",
+    #"ClearUnderscore.py",
+    #"UpdateIndexHTML.py",
+    #"deleteDuplicateRowsInHTML.py",
+    #"DeleteSimilarLinks.py",
     "ClearEveryFileAndFolder.py"
 ]
 

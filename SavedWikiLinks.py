@@ -9,7 +9,7 @@ def read_file(file_path):
 def write_file(file_path, lines):
     with open(file_path, 'w') as file:
         file.writelines(lines)
-
+'''
 def get_new_file_name(folder_path):
     now = datetime.now()
     timestamp = now.strftime("%d/%m/%Y %I:%M %p")
@@ -20,6 +20,7 @@ def get_new_file_name(folder_path):
         return get_new_file_name(folder_path)
     else:
         return file_path
+'''
 
 # Read the content of wikipedia_links.txt and LinkToBeFetched.txt
 wiki_links = read_file('wikipedia_links.txt')

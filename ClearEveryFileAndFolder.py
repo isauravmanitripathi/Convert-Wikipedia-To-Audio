@@ -7,12 +7,14 @@ clear_contents = input("Do you want to clear all the contents of the file? (yes/
 if clear_contents.lower() == "yes":
     # File and directory paths
     wiki_links_file_path = "wikipedia_links.txt"
+    link_to_be_fetched_file_path = "LinkToBeFetched.txt"  # New file to clear
     fetched_articles_dir = "Fetched Article"
     txt_to_html_dir = "TxtToHtml"
 
     # Clear file contents
-    with open(wiki_links_file_path, "w") as f:
-        pass
+    for file_path in [wiki_links_file_path, link_to_be_fetched_file_path]:  # Clear both files
+        with open(file_path, "w") as f:
+            pass
 
     # Delete all files in the fetched articles directory
     for filename in os.listdir(fetched_articles_dir):
@@ -36,7 +38,7 @@ if clear_contents.lower() == "yes":
         except Exception as e:
             print(f'Failed to delete {file_path}. Reason: {e}')
 
-    print(f"All contents of {wiki_links_file_path} and files in directories have been cleared.")
+    print(f"All contents of the files and files in directories have been cleared.")
 elif clear_contents.lower() == "no":
     print("The contents of the file and directories will not be cleared.")
 else:
